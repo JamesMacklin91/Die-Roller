@@ -1,0 +1,24 @@
+//Die Roller
+//Created by James Macklin
+//Demonstrates how to generate random numbers
+
+#include<iostream>
+#include<cstdlib>//the file cstlib contains, among other stuff, functions that deal with generating random numbers
+#include<ctime>
+
+using namespace std;
+
+int main()
+{
+	srand(static_cast<unsigned int>(time(0)));//seed random number generator, this means we tell the computer to start looking for a random number in a unique place
+	//in this case the unique place is the current date and time because that will be different every time the programm is run
+	//srand seeds the random number generator but it has to be passed an unsigned int
+	//so static_cast<unsigned int> changes the type of time(0) to that of a unsigned int so that it can be passed to srand()
+
+	int randomNumber = rand();//generate the random number
+
+	int die = (randomNumber % 6) + 1;//makes the number you get between 1 and 6, any +ve number divded by 6 will give a remainder between 1 and 5 so when 1 is added the number will be between 1 and 6
+	cout << "You rolled a " << die << endl;
+
+	return 0;
+}
